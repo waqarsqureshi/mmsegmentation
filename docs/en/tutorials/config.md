@@ -1,16 +1,16 @@
-# Tutorial 1: Learn about Configs
+# Tutorial 1: Learn about files in Configs 
 
-We incorporate modular and inheritance design into our config system, which is convenient to conduct various experiments.
+We incorporate a modular and an inheritance design into our config system, which is convenient way to conduct various experiments.
 If you wish to inspect the config file, you may run `python tools/print_config.py /PATH/TO/CONFIG` to see the complete config.
 You may also pass `--cfg-options xxx.yyy=zzz` to see updated config.
 
-## Config File Structure
+## Config file structure
 
 There are 4 basic component types under `config/_base_`, dataset, model, schedule, default_runtime.
-Many methods could be easily constructed with one of each like DeepLabV3, PSPNet.
+Many builtin architectures could be used with cuztomized configurations by changing only the config files such as DeepLabV3, PSPNet, and etc.
 The configs that are composed by components from `_base_` are called _primitive_.
 
-For all configs under the same folder, it is recommended to have only **one** _primitive_ config. All other configs should inherit from the _primitive_ config. In this way, the maximum of inheritance level is 3.
+For all files in configs under the same folder, it is recommended to have only **one** _primitive_ config. All other configs should inherit from the _primitive_ config. In this way, the maximum inheritance level is 3.
 
 For easy understanding, we recommend contributors to inherit from existing methods.
 For example, if some modification is made base on DeepLabV3, user may first inherit the basic DeepLabV3 structure by specifying `_base_ = ../deeplabv3/deeplabv3_r50_512x1024_40ki_cityscapes.py`, then modify the necessary fields in the config files.
