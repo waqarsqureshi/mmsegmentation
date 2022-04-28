@@ -98,7 +98,7 @@ __all__ = [
 
 ### Set config file of dataset
 
-After defining your dataset, it is also necessary to define configs of your dataset `my_dataset_config.py` in `./configs/_base_/datasets/`, which would be used concurrently with other config parameters in training and inference.
+After defining your dataset, it is also necessary to define configs of your dataset `my_dataset.py` in `./configs/_base_/datasets/`, which would be used concurrently with other config parameters in training and inference.
 
 ```python
 # Your dataset type defined in ./mmseg/datasets/__init__.py
