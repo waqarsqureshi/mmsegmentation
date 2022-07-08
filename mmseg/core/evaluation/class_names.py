@@ -11,6 +11,12 @@ def cityscapes_classes():
         'bicycle'
     ]
 
+def roadsurvey_classes():
+    """RoadSurvey class names for external use."""
+    return [
+        'BACKGROUND', 'HUMAN', 'POLE','ROAD',
+        'TRAFFIC LIGHT','TRAFFIC SIGN','VEHICLE'
+    ]
 
 def ade_classes():
     """ADE20K class names for external use."""
@@ -133,6 +139,11 @@ def cityscapes_palette():
             [107, 142, 35], [152, 251, 152], [70, 130, 180], [220, 20, 60],
             [255, 0, 0], [0, 0, 142], [0, 0, 70], [0, 60, 100], [0, 80, 100],
             [0, 0, 230], [119, 11, 32]]
+            
+def roadsurvey_palette():
+    """roadsurvey palette for external use."""
+    return  [[ 0, 0, 0], [220,20,60], [153,153,153], 
+    	     [128,64,128], [250,170,30], [220,220,0], [0,0,142]]
 
 
 def ade_palette():
@@ -264,7 +275,6 @@ def stare_palette():
     """STARE palette for external use."""
     return [[120, 120, 120], [6, 230, 230]]
 
-
 dataset_aliases = {
     'cityscapes': ['cityscapes'],
     'ade': ['ade', 'ade20k'],
@@ -278,7 +288,8 @@ dataset_aliases = {
         'coco_stuff164k'
     ],
     'isaid': ['isaid', 'iSAID'],
-    'stare': ['stare', 'STARE']
+    'stare': ['stare', 'STARE'],
+    'roadsurvey':['roadsurvey']
 }
 
 
@@ -305,7 +316,7 @@ def get_palette(dataset):
     for name, aliases in dataset_aliases.items():
         for alias in aliases:
             alias2name[alias] = name
-
+     
     if mmcv.is_str(dataset):
         if dataset in alias2name:
             labels = eval(alias2name[dataset] + '_palette()')
